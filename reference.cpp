@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -25,4 +26,17 @@ int main(){
 	cout << y << " " << z << endl;
 	swap(y,z);
 	cout << y << " " << z << endl;
+	
+	vector<int> increment{10, 15, 20};
+	
+	for(int& v:increment){
+		v += 5;
+	}
+	
+	vector<int>::iterator itr;
+	
+	for(itr = increment.begin(); itr!=increment.end(); itr++){
+		cout << *itr << " ";
+	}
+	cout << endl;
 }
