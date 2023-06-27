@@ -15,4 +15,8 @@ int main(){
 	cout << ptr << endl;
 	ptr++;
 	cout << ptr << endl;
+	
+	int* q = &i;
+	int& r = 10;
+
 }
