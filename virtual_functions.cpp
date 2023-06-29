@@ -2,7 +2,17 @@
 
 using namespace std;
 
-class Parent{
+class SuperParent{//abstract class
+	virtual void getName() = 0;//pure virtual functions
+	
+	public:
+	void print(){
+		cout << 1 << endl;
+	}
+	
+};
+
+class Parent : public SuperParent{
 	public:
 	virtual void getName(){
 		cout << "Parent" << endl;
@@ -32,6 +42,9 @@ int main(){
 	Child c2("Amal");
 	p3 = c2;
 	p3.getName();
+	p3.print();
+	
+	
 	
 	//Parent
 	//Child Amal
