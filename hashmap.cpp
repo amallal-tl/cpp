@@ -26,11 +26,25 @@ public:
     }
     
     int get(int key) {
-        
+        int h = hashing(key);
+
+        for(auto &p : mappings[h]){
+            if(p.first == key){
+                return p.second;
+            }
+        }
+        return -1;
     }
     
     void remove(int key) {
-        
+        int h = hashing(key);
+
+        for(auto itr = mappings[h].begin(); itr != mappings[h].end(); ++itr){
+            if(itr->first == key){
+                mappings[h].erase(itr);
+                return;
+            }
+        }
     }
 };
 
