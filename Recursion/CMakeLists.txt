@@ -25,3 +25,7 @@ add_executable(maxEltInArray
 add_executable(reverse_string
     reverse_string.cpp
 )
+
+add_executable(print_linked_list
+    print_linked_list.cpp
+)
