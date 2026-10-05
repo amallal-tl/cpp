@@ -17,3 +17,7 @@ add_executable(N_to_1
 add_executable(Fibanocci
     Fibanocci.cpp
 )
+
+add_executable(maxEltInArray
+    max_elt_in_array.cpp
+)
