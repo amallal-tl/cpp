@@ -21,3 +21,7 @@ add_executable(Fibanocci
 add_executable(maxEltInArray
     max_elt_in_array.cpp
 )
+
+add_executable(reverse_string
+    reverse_string.cpp
+)
