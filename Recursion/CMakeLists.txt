@@ -13,3 +13,7 @@ add_executable(Factorial
 add_executable(N_to_1
     N_to_1.cpp
 )
+
+add_executable(Fibanocci
+    Fibanocci.cpp
+)
