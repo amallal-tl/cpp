@@ -29,3 +29,7 @@ add_executable(reverse_string
 add_executable(print_linked_list
     print_linked_list.cpp
 )
+
+add_executable(fibonacci_tree
+    fibonacci_tree.cpp
+)
