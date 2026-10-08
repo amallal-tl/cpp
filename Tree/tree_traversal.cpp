@@ -54,6 +54,14 @@ int sumOfNode(TreeNode* rootNode){
     return rootNode->data + sumOfNode(rootNode->left) + sumOfNode(rootNode->right);
 }
 
+bool searchForValue(TreeNode* rootNode, int searchValue){
+    if(rootNode == nullptr) return false;
+
+    if(rootNode->data == searchValue) return true;
+
+    return (searchForValue(rootNode->left, searchValue) ||  searchForValue(rootNode->right, searchValue));
+}
+
 int main(){
     TreeNode* rootNode = new TreeNode{1, nullptr, nullptr};
     rootNode->left = new TreeNode{2, nullptr,nullptr};
@@ -76,5 +84,10 @@ int main(){
     cout << "Number of Nodes present = " << countNode(rootNode) << endl;
 
     cout << "Sum of Nodes = " << sumOfNode(rootNode) << endl;
+
+    int searchValueExist = 4, searchValueNonExist = 10;
+    cout << boolalpha;
+    cout << "Found the value " << searchValueExist << " = " << searchForValue(rootNode, searchValueExist) << endl;
+    cout << "Found the value " << searchValueNonExist << " = " << searchForValue(rootNode, searchValueNonExist) << endl;
     return 0;
 }
