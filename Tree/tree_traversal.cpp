@@ -62,6 +62,15 @@ bool searchForValue(TreeNode* rootNode, int searchValue){
     return (searchForValue(rootNode->left, searchValue) ||  searchForValue(rootNode->right, searchValue));
 }
 
+int countLeafNodes(TreeNode* rootNode){
+    if(rootNode == nullptr) return 0;
+
+    if(rootNode->left == nullptr && rootNode->right == nullptr) 
+        return 1;
+
+    return countLeafNodes(rootNode->left) + countLeafNodes(rootNode->right);
+}
+
 int main(){
     TreeNode* rootNode = new TreeNode{1, nullptr, nullptr};
     rootNode->left = new TreeNode{2, nullptr,nullptr};
@@ -89,5 +98,8 @@ int main(){
     cout << boolalpha;
     cout << "Found the value " << searchValueExist << " = " << searchForValue(rootNode, searchValueExist) << endl;
     cout << "Found the value " << searchValueNonExist << " = " << searchForValue(rootNode, searchValueNonExist) << endl;
+    
+    cout << "Count of leaf nodes = " << countLeafNodes(rootNode) << endl;
+    
     return 0;
 }
