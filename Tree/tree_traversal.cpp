@@ -48,6 +48,12 @@ int countNode(TreeNode* rootNode){
     return countNode(rootNode->left) + 1 + countNode(rootNode->right);
 }
 
+int sumOfNode(TreeNode* rootNode){
+    if(rootNode == nullptr) return 0;
+
+    return rootNode->data + sumOfNode(rootNode->left) + sumOfNode(rootNode->right);
+}
+
 int main(){
     TreeNode* rootNode = new TreeNode{1, nullptr, nullptr};
     rootNode->left = new TreeNode{2, nullptr,nullptr};
@@ -67,6 +73,8 @@ int main(){
 
     cout << "Height = " << treeHeight(rootNode) << endl;
 
-    cout << "Number of Nodes present = " << countNode(rootNode);
+    cout << "Number of Nodes present = " << countNode(rootNode) << endl;
+
+    cout << "Sum of Nodes = " << sumOfNode(rootNode) << endl;
     return 0;
 }
