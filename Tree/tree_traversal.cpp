@@ -71,6 +71,16 @@ int countLeafNodes(TreeNode* rootNode){
     return countLeafNodes(rootNode->left) + countLeafNodes(rootNode->right);
 }
 
+int findMaxValue(TreeNode* rootNode){
+    if(rootNode == nullptr) 
+        return numeric_limits<int>::min();
+
+    int leftV = max(rootNode->data, findMaxValue(rootNode->left));
+    int rightV = max(rootNode->data, findMaxValue(rootNode->right));
+
+    return max(leftV, rightV);
+}
+
 int main(){
     TreeNode* rootNode = new TreeNode{1, nullptr, nullptr};
     rootNode->left = new TreeNode{2, nullptr,nullptr};
@@ -100,6 +110,8 @@ int main(){
     cout << "Found the value " << searchValueNonExist << " = " << searchForValue(rootNode, searchValueNonExist) << endl;
     
     cout << "Count of leaf nodes = " << countLeafNodes(rootNode) << endl;
+
+    cout << "The max value = " << findMaxValue(rootNode) << endl; 
     
     return 0;
 }
