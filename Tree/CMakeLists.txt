@@ -8,3 +8,4 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_executable(TreeTraversal tree_traversal.cpp)
 add_executable(MirrorTree mirror_tree.cpp)
+add_executable(LevelOrderTraversal level_order_traversal.cpp)
