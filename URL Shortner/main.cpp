@@ -40,27 +40,28 @@ int main(){
     std::mt19937 generator(randomDevice());
 
     cout << "Project : URL SHORTNER IS RUNNING..." << endl;
-    while(true){    
-        cout << "Please enter the URL" << endl;
-        getline(cin, inputURL);
-        
-        if(inputURL == "exit") break;
+    
+    while (true) {
+        cout << "Please enter the URL (or 'exit' to stop): ";
+
+        if (!getline(cin, inputURL)) {
+            break;
+        }
+
+        if (inputURL == "exit") {
+            break;
+        }
+
+        if (inputURL.empty()) {
+            cout << "URL cannot be empty!" << endl;
+            continue;
+        }
 
         string shortURLCode = generateUniqueCode(urls, generator);
-
         urls[shortURLCode] = inputURL;
 
         cout << "Original URL: " << inputURL << endl;
-
-        cout << "The Shortened URL: http://localhost:8080/" << shortURLCode << endl;
-
-        auto itr = urls.find(shortURLCode);
-        
-        if (itr != urls.end()) {
-            cout << "Redirect destination: " << itr->second << endl;
-        } else {
-            cout << "Short code not found!" << endl;
-        }
+        cout << "Short URL: http://localhost:8080/" << shortURLCode << endl;
     }
 
     cout << "Exiting application" << endl;
