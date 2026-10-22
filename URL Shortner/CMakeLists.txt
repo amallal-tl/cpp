@@ -34,7 +34,10 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(Crow)
 
 add_executable(url_shortener
-    main.cpp
+    src/main.cpp
+    src/url_shortener.cpp
+    src/short_code_generator.cpp
+    src/url_service.cpp
 )
 
 target_link_libraries(url_shortener PRIVATE Crow::Crow)
