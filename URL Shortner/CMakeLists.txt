@@ -40,4 +40,9 @@ add_executable(url_shortener
     src/url_service.cpp
 )
 
+target_include_directories(url_shortener
+    PRIVATE
+        "${CMAKE_CURRENT_SOURCE_DIR}/include"
+)
+
 target_link_libraries(url_shortener PRIVATE Crow::Crow)

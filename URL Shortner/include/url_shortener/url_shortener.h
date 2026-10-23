@@ -1,6 +1,7 @@
 #pragma once
 
 #include "crow.h"
+#include "url_shortener/url_service.h"
 
 class UrlShortener{
     public:
@@ -8,6 +9,7 @@ class UrlShortener{
         void run();
 
     private:
-        Crow::SimpleApp app;
+        crow::SimpleApp app;
+        UrlService urlService_;
         void registerRoutes();
 };
