@@ -11,6 +11,10 @@ void UrlShortener::registerRoutes()
     {
         return "URL Shortener server is running!";
     });
+
+    CROW_ROUTE(app, "/health")([](){
+        return crow::response(200, "Server looks healthy!");
+    });
 }
 
 void UrlShortener::run()
